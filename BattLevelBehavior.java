@@ -9,12 +9,10 @@ public class BattLevelBehavior implements Behavior {
     private boolean suppressed = false;  
     private static final float LOW_BATTERY_THRESHOLD = 6.5f;  
 
-    @Override
     public boolean takeControl() {
         return Battery.getVoltage() < LOW_BATTERY_THRESHOLD; //return true, initiate take control behaviour 
     }
 
-    @Override
     public void action() {
         suppressed = false;
         while (suppressed == false) {
@@ -32,7 +30,7 @@ public class BattLevelBehavior implements Behavior {
         }
     }
 
-    @Override
+    
     public void suppress() {
         suppressed = true;  //higher priority process takes over with this call
     }
